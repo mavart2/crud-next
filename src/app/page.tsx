@@ -2,9 +2,11 @@ import prisma from "@/lib/prisma";
 import { deleteTask, toggleTask } from "./actions";
 import { TaskForm } from "@/components/task-form";
 import { TaskActionButton } from "@/components/task-action-button";
+import { Task } from "@prisma/client";
+
 
 export default async function Home() {
-  const tasks = await prisma.task.findMany({
+  const tasks: Task[] = await prisma.task.findMany({
     orderBy: {
       createdAt: "desc",
     },
