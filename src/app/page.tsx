@@ -19,12 +19,12 @@ export default async function Home() {
           <p>Organiza, gestiona y escala tus tareas.</p>
         </header>
 
-        <section className="rounded-2xl border border-zinc-200 bg-white/80 p-6 shadow-sm backdrop-blur-sm">
+        <section className="rounded-2xl border border-zinc-200 bg-white/60 p-6 shadow-sm backdrop-blur-sm">
           <h2 className="mb-4 text-xl font-semibold">Nueva tarea</h2>
           <TaskForm />
         </section>
 
-        <section className="rounded-2xl border border-zinc-200 bg-white/80 p-6 shadow-sm backdrop-blur-sm">
+        <section className="rounded-2xl border border-zinc-200 bg-white/60 p-6 shadow-sm  ">
           <h2 className="mb-4 text-xl font-semibold">Tareas</h2>
 
           {tasks.length === 0 ? (
