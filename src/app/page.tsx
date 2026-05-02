@@ -4,13 +4,18 @@ import { TaskForm } from "@/components/task-form";
 import { TaskActionButton } from "@/components/task-action-button";
 import { Task } from "@prisma/client";
 
+export const dynamic = "force-dynamic";
 
 export default async function Home() {
-  const tasks: Task[] = await prisma.task.findMany({
-    orderBy: {
-      createdAt: "desc",
-    },
-  });
+  let tasks: Task[] = [];
+
+  try {
+    tasks = await prisma.task.findMany({
+      orderBy: { createdAt: "desc" },
+    });
+  } catch (error) {
+    console.log("DB not available at build time");
+  }
 
   return (
     <main className="min-h-screen px-6 py-12 text-zinc-900">
