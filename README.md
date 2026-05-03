@@ -6,7 +6,7 @@ Gestor de tareas full-stack con Next.js, Prisma y Supabase.
 
 ## Preview
 
-[![PrismaTasks preview](./images/preview-prismatasks.jpg)](https://crudnapp.netlify.app/)
+[![PrismaTasks preview](./images/preview-prismatasks.png)](https://crudnapp.netlify.app/)
 
 ## Stack
 
