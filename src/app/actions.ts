@@ -34,34 +34,50 @@ export async function createTask(
     };
   }
 
-  await prisma.task.create({
-    data: {
-      title: validatedFields.data.title,
-    },
-  });
+  try {
+    await prisma.task.create({
+      data: {
+        title: validatedFields.data.title,
+      },
+    });
 
-  revalidatePath("/");
+    revalidatePath("/");
 
-  return {
-    message: "Tarea creada correctamente.",
-  };
+    return {
+      message: "Tarea creada correctamente.",
+    };
+  } catch (error) {
+    console.error("Error al crear tarea:", error);
+
+    return {
+      message: "No se pudo guardar la tarea por un problema de conexión.",
+    };
+  }
 }
 
 export async function toggleTask(id: number, completed: boolean) {
-  await prisma.task.update({
-    where: { id },
-    data: {
-      completed: !completed,
-    },
-  });
+  try {
+    await prisma.task.update({
+      where: { id },
+      data: {
+        completed: !completed,
+      },
+    });
 
-  revalidatePath("/");
+    revalidatePath("/");
+  } catch (error) {
+    console.error("Error al actualizar tarea:", error);
+  }
 }
 
 export async function deleteTask(id: number) {
-  await prisma.task.delete({
-    where: { id },
-  });
+  try {
+    await prisma.task.delete({
+      where: { id },
+    });
 
-  revalidatePath("/");
+    revalidatePath("/");
+  } catch (error) {
+    console.error("Error al eliminar tarea:", error);
+  }
 }
