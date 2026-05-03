@@ -2,7 +2,7 @@ import prisma from "@/lib/prisma";
 import { deleteTask, toggleTask } from "./actions";
 import { TaskForm } from "@/components/task-form";
 import { TaskActionButton } from "@/components/task-action-button";
-import { Task } from "@prisma/client";
+import type { Task } from "@prisma/client";
 
 export const dynamic = "force-dynamic";
 
